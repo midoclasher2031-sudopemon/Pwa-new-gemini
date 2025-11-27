@@ -1,0 +1,22 @@
+{
+  "name": "تطبيقي PWA",
+  "short_name": "MyPWA",
+  "description": "تطبيق ويب تقدمي يعمل على جميع الأجهزة",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3367D6",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/192/1006/1006771.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1006/1006771.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
