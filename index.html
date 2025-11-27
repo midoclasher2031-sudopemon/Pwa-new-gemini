@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيقي PWA</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3367D6"/>
+    <link rel="manifest" href="manifest.json">
+
+    <!-- iOS Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="تطبيقي PWA">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 90%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .feature {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-right: 4px solid #3367D6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 تطبيقي PWA الجاهز!</h1>
+        <p>هذا تطبيق ويب تقدمي يعمل على جميع الأجهزة</p>
+        
+        <div class="feature">✅ أضف للشاشة الرئيسية</div>
+        <div class="feature">✅ يعمل بدون إنترنت</div>
+        <div class="feature">✅ يظهر كتطبيق مستقل</div>
+        <div class="feature">✅ سريع الاستجابة</div>
+        
+        <p style="margin-top: 20px; color: #666;">
+            اضغط Share → Add to Home Screen
+        </p>
+    </div>
+
+    <!-- Service Worker Registration -->
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('Service Worker registered: ', registration);
+                    })
+                    .catch(function(error) {
+                        console.log('Service Worker registration failed: ', error);
+                    });
+            });
+        }
+
+        // Check if app is launched from home screen
+        if (window.navigator.standalone) {
+            console.log("Launched from home screen!");
+        }
+    </script>
+</body>
+</html>
